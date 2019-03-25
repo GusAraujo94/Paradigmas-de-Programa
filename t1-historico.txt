@@ -1,0 +1,361 @@
+1.
+GHCi, version 8.6.3: http://www.haskell.org/ghc/  :? for help
+Prelude> :cd D:\Laffy\Documents\SI - 2019-1\Paradigmas da Programação\t1
+Prelude> :load "t1.hs"
+
+t1.hs:3:24: error: parse error on input ‘]’
+  |
+[1 of 1] Compiling Main             ( t1.hs, interpreted )
+Failed, no modules loaded.
+3 | isVowel :: Char -> Bool]   |                        ^
+Prelude> :reload
+[1 of 1] Compiling Main             ( t1.hs, interpreted )
+
+t1.hs:4:1: error:
+    Illegal type signature: ‘c’
+      Type signatures are only allowed in patterns with ScopedTypeVariables
+  |
+4 | isVowel :: c = if c == 'a' or c == 'e' or c == 'i' or c == 'o' or c == 'u' then True else False    | ^^^^^^^^^^^^
+
+t1.hs:4:19: error:
+    Precedence parsing error
+        cannot mix ‘==’ [infix 4] and ‘==’ [infix 4] in the same infix expression
+  |
+4 | isVowel :: c = if c == 'a' or c == 'e' or c == 'i' or c == 'o' or c == 'u' then True else False    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+t1.hs:4:19: error:
+    Precedence parsing error
+        cannot mix ‘==’ [infix 4] and ‘==’ [infix 4] in the same infix expression
+  |
+4 | isVowel :: c = if c == 'a' or c == 'e' or c == 'i' or c == 'o' or c == 'u' then True else False 
+
+  |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+t1.hs:4:19: error:
+    Precedence parsing error
+        cannot mix ‘==’ [infix 4] and ‘==’ [infix 4] in the same infix expression
+  |
+4 | isVowel :: c = if c == 'a' or c == 'e' or c == 'i' or c == 'o' or c == 'u' then True else False    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+t1.hs:4:19: error:
+    Precedence parsing error
+        cannot mix ‘==’ [infix 4] and ‘==’ [infix 4] in the same infix expression
+
+  |
+4 | isVowel :: c = if c == 'a' or c == 'e' or c == 'i' or c == 'o' or c == 'u' then True else False    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Failed, no modules loaded.
+Prelude> :reload
+[1 of 1] Compiling Main             ( t1.hs, interpreted )
+Failed, no modules loaded.
+Prelude> 
+t1.hs:4:16: error:
+    Precedence parsing error
+        cannot mix ‘==’ [infix 4] and ‘==’ [infix 4] in the same infix expression
+  |
+4 | isVowel c = if c == 'a' or c == 'e' or c == 'i' or c == 'o' or c == 'u' then True else False    |                ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+t1.hs:4:16: error:
+    Precedence parsing error
+        cannot mix ‘==’ [infix 4] and ‘==’ [infix 4] in the same infix expression
+  |
+4 | isVowel c = if c == 'a' or c == 'e' or c == 'i' or c == 'o' or c == 'u' then True else False    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+t1.hs:4:16: error:
+    Precedence parsing error
+        cannot mix ‘==’ [infix 4] and ‘==’ [infix 4] in the same infix expression
+  |
+4 | isVowel c = if c == 'a' or c == 'e' or c == 'i' or c == 'o' or c == 'u' then True else False    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+t1.hs:4:16: error:
+    Precedence parsing error
+        cannot mix ‘==’ [infix 4] and ‘==’ [infix 4] in the same infix expression
+  |
+4 | isVowel c = if c == 'a' or c == 'e' or c == 'i' or c == 'o' or c == 'u' then True else False    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:reload
+[1 of 1] Compiling Main             ( t1.hs, interpreted )
+Ok, one module loaded.
+*Main> a
+
+<interactive>:12:1: error: Variable not in scope: a
+*Main> isVowel a
+
+<interactive>:13:9: error: Variable not in scope: a :: Char
+*Main> isVowel 'a'
+True
+*Main> isVowel 's'
+False
+
+
+2.
+*Main> :reload
+[1 of 1] Compiling Main             ( t1.hs, interpreted )
+
+t1.hs:10:23: error:
+    • Couldn't match expected type ‘[Char]’ with actual type ‘Char’
+    • In the second argument of ‘(++)’, namely ‘','’
+      In the expression: lis ++ ','
+      In an equation for ‘addComma’: addComma lis = lis ++ ','
+   |
+10 | addComma lis = lis ++ ','
+   |                       ^^^
+Failed, no modules loaded.
+Prelude> :reload
+[1 of 1] Compiling Main             ( t1.hs, interpreted )
+Ok, one module loaded.
+*Main> addComma "ola prof andrea"
+"ola prof andrea,"
+*Main> addComma ["ola", "prof", "andrea"]
+
+<interactive>:21:11: error:
+    • Couldn't match expected type ‘Char’ with actual type ‘[Char]’
+    • In the expression: "ola"
+      In the first argument of ‘addComma’, namely
+        ‘["ola", "prof", "andrea"]’
+      In the expression: addComma ["ola", "prof", "andrea"]
+
+<interactive>:21:18: error:
+    • Couldn't match expected type ‘Char’ with actual type ‘[Char]’
+    • In the expression: "prof"
+      In the first argument of ‘addComma’, namely
+        ‘["ola", "prof", "andrea"]’
+      In the expression: addComma ["ola", "prof", "andrea"]
+
+<interactive>:21:26: error:
+    • Couldn't match expected type ‘Char’ with actual type ‘[Char]’
+    • In the expression: "andrea"
+      In the first argument of ‘addComma’, namely
+        ‘["ola", "prof", "andrea"]’
+      In the expression: addComma ["ola", "prof", "andrea"]
+*Main> addComma ["ola" "prof" "andrea"]
+
+<interactive>:22:11: error:
+    • Couldn't match expected type ‘[Char] -> [Char] -> Char’
+                  with actual type ‘[Char]’
+    • The function ‘"ola"’ is applied to two arguments,
+      but its type ‘[Char]’ has none
+      In the expression: "ola" "prof" "andrea"
+      In the first argument of ‘addComma’, namely
+        ‘["ola" "prof" "andrea"]’
+*Main> :reload
+[1 of 1] Compiling Main             ( t1.hs, interpreted )
+
+t1.hs:10:16: error:
+    • Couldn't match expected type ‘[Char]’
+                  with actual type ‘[a0] -> [b0]’
+    • Probable cause: ‘map’ is applied to too few arguments
+      In the first argument of ‘(++)’, namely ‘map lis’
+      In the expression: map lis ++ ","
+      In an equation for ‘addComma’: addComma lis = map lis ++ ","
+   |
+10 | addComma lis = map lis ++ ","
+
+   |                ^^^^^^^
+
+t1.hs:10:16: error:
+    • Couldn't match type ‘Char’ with ‘[Char]’
+      Expected type: [String]
+        Actual type: [Char]
+    • In the expression: map lis ++ ","
+      In an equation for ‘addComma’: addComma lis = map lis ++ ","
+   |
+10 | addComma lis = map lis ++ ","
+   |                ^^^^^^^^^^^^^^
+
+t1.hs:10:20: error:
+    • Couldn't match expected type ‘a0 -> b0’
+                  with actual type ‘[String]’
+    • In the first argument of ‘map’, namely ‘lis’
+      In the first argument of ‘(++)’, namely ‘map lis’
+      In the expression: map lis ++ ","
+   |
+10 | addComma lis = map lis ++ ","
+   |                    ^^^
+Failed, no modules loaded.
+Prelude> addComma ["ola" , "prof", "andrea"]
+
+<interactive>:24:1: error:
+    Variable not in scope: addComma :: [[Char]] -> t
+Prelude> addComma ["ola" "prof" "andrea"]
+
+<interactive>:25:1: error:
+    Variable not in scope: addComma :: [a0] -> t
+Prelude> addComma "ola prof andrea"
+
+<interactive>:26:1: error:
+    Variable not in scope: addComma :: [Char] -> t
+Prelude> :reload
+[1 of 1] Compiling Main             ( t1.hs, interpreted )
+Ok, one module loaded.
+*Main> addComma ["ola" , "prof" , "andrea"]
+["ola,","prof,","andrea,"]
+
+4.
+*Main> :reload
+[1 of 1] Compiling Main             ( t1.hs, interpreted )
+
+t1.hs:22:103: error:
+    parse error on input ‘=’
+    Perhaps you need a 'let' in a 'do' block?
+    e.g. 'let x = 5' instead of 'x = 5'
+   |
+22 | delVowel lis = map(\s -> map(\c -> if c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' then c = null) s ) lis
+   |                                                                                                       ^
+Failed, no modules loaded.
+Prelude> :reload
+[1 of 1] Compiling Main             ( t1.hs, interpreted )
+Failed, no modules loaded.
+Prelude> 
+t1.hs:22:113: error: parse error on input ‘)’
+   |
+22 | delVowel lis = map(\s -> map(\c -> if c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' then let c = null) s ) lis
+   |                                                                                                                 ^
+:reload
+[1 of 1] Compiling Main             ( t1.hs, interpreted )
+Failed, no modules loaded.
+Prelude> 
+t1.hs:22:114: error: parse error on input ‘)’
+   |
+22 | delVowel lis = map(\s -> map(\c -> if c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' then let c = null ) s ) lis
+   |                                                                                                                  ^
+:reload
+[1 of 1] Compiling Main             ( t1.hs, interpreted )
+Failed, no modules loaded.
+Prelude> 
+t1.hs:22:117: error: parse error on input ‘)’
+   |
+22 | delVowel lis = map(\s -> map(\c -> if c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' then let c = null  s ) lis
+   |                                                                                                                     ^
+:reload
+[1 of 1] Compiling Main             ( t1.hs, interpreted )
+Failed, no modules loaded.
+Prelude> 
+t1.hs:22:121: error:
+    parse error (possibly incorrect indentation or mismatched brackets)
+   |
+22 | delVowel lis = map(\s -> map(\c -> if c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' then let c = null  s  lis
+   |                                                                                                                         ^
+:reload
+[1 of 1] Compiling Main             ( t1.hs, interpreted )
+
+t1.hs:24:66: error: Variable not in scope: s :: [a0]
+   |
+24 | removeVowel lis = map(\s -> filter (not . (`elem` "aeiouAEIOU")))s
+   |                                                                  ^
+Failed, no modules loaded.
+Prelude> :reload
+[1 of 1] Compiling Main             ( t1.hs, interpreted )
+
+t1.hs:24:19: error:
+    • Couldn't match expected type ‘[String]’
+                  with actual type ‘[a0] -> [[Char] -> [Char]]’
+    • Probable cause: ‘map’ is applied to too few arguments
+      In the expression:
+        map (\ s -> filter (not . (`elem` "aeiouAEIOU")))
+      In an equation for ‘removeVowel’:
+          removeVowel lis = map (\ s -> filter (not . (`elem` "aeiouAEIOU")))
+   |
+24 | removeVowel lis = map(\s -> filter (not . (`elem` "aeiouAEIOU")))
+   |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Failed, no modules loaded.
+Prelude> :reload
+[1 of 1] Compiling Main             ( t1.hs, interpreted )
+Failed, no modules loaded.
+Prelude> 
+t1.hs:24:19: error:
+    • Couldn't match type ‘[Char] -> [Char]’ with ‘[Char]’
+      Expected type: [String]
+        Actual type: [[Char] -> [Char]]
+    • In the expression:
+        map (\ s -> filter (not . (`elem` "aeiouAEIOU"))) lis
+      In an equation for ‘removeVowel’:
+          removeVowel lis
+            = map (\ s -> filter (not . (`elem` "aeiouAEIOU"))) lis
+   |
+24 | removeVowel lis = map(\s -> filter (not . (`elem` "aeiouAEIOU")))lis
+   |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:reload
+[1 of 1] Compiling Main             ( t1.hs, interpreted )
+
+t1.hs:24:34: error: Variable not in scope: s :: [Char]
+   |
+24 | removeVowel lis = map [ s | s <- s, not (s `elem` ",.?!-:;\"\'") ] lis
+   |                                  ^
+Failed, no modules loaded.
+Prelude> :reload
+[1 of 1] Compiling Main             ( t1.hs, interpreted )
+Failed, no modules loaded.
+Prelude> 
+t1.hs:24:48: error: Variable not in scope: x :: Char
+   |
+24 | removeVowel lis = map(\s -> [ c | c <- s, not (x `elem` ",.?!-:;\"\'") ]) lis
+   |                                                ^
+:reload
+[1 of 1] Compiling Main             ( t1.hs, interpreted )
+Ok, one module loaded.
+*Main> removeVowel ["andr;[?/"]
+["andr[/"]
+*Main> :reload
+[1 of 1] Compiling Main             ( t1.hs, interpreted )
+Ok, one module loaded.
+*Main> removeVowel ["andrea" , "gustavo"]
+["ndr","gstv"]
+*Main> :reload
+[1 of 1] Compiling Main             ( t1.hs, interpreted )
+Failed, no modules loaded.
+Prelude> 
+t1.hs:24:21: error: parse error on input ‘|’
+   |
+24 | removeVowel str = c | c <- str, not (c `elem` "aeiouAEIOU")
+   |                     ^
+:reload
+[1 of 1] Compiling Main             ( t1.hs, interpreted )
+Ok, one module loaded.
+*Main> removeVowel "GUstavO"
+"Gstv"
+
+
+6.
+[1 of 1] Compiling Main             ( t1.hs, interpreted )
+Failed, no modules loaded.
+Prelude> 
+t1.hs:37:42: error:
+    parse error (possibly incorrect indentation or mismatched brackets)
+   |
+37 | firstName str = break(isDigit ||| (==' ')
+   |                                          ^
+:reload
+[1 of 1] Compiling Main             ( t1.hs, interpreted )
+Failed, no modules loaded.
+Prelude> 
+t1.hs:37:46: error:
+    parse error (possibly incorrect indentation or mismatched brackets)
+   |
+37 | firstName str = break(isDigit ||| (==' ') ...
+   |                                              ^
+:reload
+[1 of 1] Compiling Main             ( t1.hs, interpreted )
+
+t1.hs:37:17: error:
+    • Couldn't match type ‘[Char] -> [Char]’ with ‘[Char]’
+      Expected type: String
+        Actual type: [Char] -> [Char]
+    • Probable cause: ‘takeWhile’ is applied to too few arguments
+      In the expression: takeWhile (< ' ')
+      In an equation for ‘firstName’: firstName str = takeWhile (< ' ')
+   |
+37 | firstName str = takeWhile(<' ')
+   |                 ^^^^^^^^^^^^^^^
+Failed, no modules loaded.
+Prelude> :reload
+[1 of 1] Compiling Main             ( t1.hs, interpreted )
+Ok, one module loaded.
+*Main> firstName "Gustavo Alberto de Araujo"
+""
+*Main> :reload
+[1 of 1] Compiling Main             ( t1.hs, interpreted )
+Ok, one module loaded.
+*Main> firstName "GUSTAVO ALBERTO DE ARAUJO"
+"GUSTAVO"
+
+
+7.
